@@ -52,7 +52,7 @@ def main():
                     # else just append the character to the message
                     my_msg.append(char)
     except Exception as e:
-        print 'Exception occurred, value:', e.message
+        print 'Exception occurred, value:', e
     finally:
         my_socket.close()
         print 'client connection is closed'

