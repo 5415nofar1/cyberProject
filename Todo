@@ -1,0 +1,32 @@
+
+
+arp ping?
+
+כלים:
+שימוש בproc buffer לרמת האפליקציה
+sweeg  - cשילוב פייתון ו
+שימוש בRPyc
+
+
+נקודות לתוספת ושדרוג:
+- פתיחת thread בכל בקשה
+- רישום של הפרוסס שווינדואוס יריץ אותו - persistence
+
+יעילות מבחינת import
+בקרת שגיאות
+עבודה על כמה client
+עשיית update בצורה יותר יעילה
+בשינוי הsocket לשנות גם את הקונפיגורציה
+להחביא סוקט פתוח?
+לסדר את הקוד, class
+create exe for client with option to config it
+
+
+
+פונקציונליות:
+key logger
+cmd (process managment)
+update
+screenshot
+... class RAT
+info about the computer

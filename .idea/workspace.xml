@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51cd9579-5022-42c7-a5d9-99543192aa74" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Todo" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classClient.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classServer.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/UDPclient.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/UDPserver.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client.py" afterPath="$PROJECT_DIR$/client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_version.py" afterPath="$PROJECT_DIR$/new_version.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/srcClient.py" afterPath="$PROJECT_DIR$/srcClient.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/srcServer.py" afterPath="$PROJECT_DIR$/srcServer.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,30 +18,65 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Project" />
+  </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.py">
+      <file leaf-file-name="classServer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="74" column="42" lean-forward="true" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+            <state relative-caret-position="205">
+              <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#3611#3796#0" expanded="false" />
+                <element signature="e#2792#2806#0" expanded="false" />
+                <element signature="e#3230#4283#0" expanded="false" />
+                <element signature="e#4861#4882#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client.py">
+      <file leaf-file-name="classClient.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classClient.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="368">
+              <caret line="54" column="31" lean-forward="true" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="126" column="106" lean-forward="false" selection-start-line="126" selection-start-column="87" selection-end-line="126" selection-end-column="106" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#991#1899#0" expanded="false" />
-                <element signature="e#1962#1992#0" expanded="false" />
+                <element signature="e#338#822#0" expanded="false" />
+                <element signature="e#551#783#0" expanded="false" />
+                <element signature="e#645#783#0" expanded="false" />
+                <element signature="e#860#876#0" expanded="false" />
+                <element signature="e#917#1500#0" expanded="false" />
+                <element signature="e#1037#1500#0" expanded="false" />
+                <element signature="e#1054#1242#0" expanded="false" />
+                <element signature="e#1280#1377#0" expanded="false" />
+                <element signature="e#1549#1577#0" expanded="false" />
+                <element signature="e#1628#1656#0" expanded="false" />
+                <element signature="e#1674#1771#0" expanded="false" />
+                <element signature="e#1803#1817#0" expanded="false" />
+                <element signature="e#1859#1898#0" expanded="false" />
+                <element signature="e#2210#2857#0" expanded="false" />
+                <element signature="e#2532#2807#0" expanded="false" />
+                <element signature="e#2580#2807#0" expanded="false" />
+                <element signature="e#2973#3060#0" expanded="false" />
+                <element signature="e#3740#3788#0" expanded="false" />
+                <element signature="e#4085#4194#0" expanded="false" />
+                <element signature="e#4253#4404#0" expanded="false" />
+                <element signature="e#4310#4344#0" expanded="false" />
+                <element signature="e#4473#4658#0" expanded="false" />
+                <element signature="e#4798#4863#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,40 +93,43 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>print</find>
-      <find>dict</find>
-      <find>send</find>
-      <find>socket</find>
-      <find>Att</find>
-      <find>os.</find>
-      <find>split</find>
-      <find>receiving</find>
-      <find>file size =</find>
-      <find>os</find>
-      <find>e.message</find>
-      <find>new</find>
-      <find>update_version</find>
-      <find>Exception occurred, value:</find>
-      <find>Attacker</find>
-      <find>port</find>
-      <find>manipulate_data</find>
-      <find>4</find>
-      <find>sys</find>
-      <find>exit</find>
-      <find>exit!</find>
-      <find>my_socket.close()</find>
-      <find>.....New</find>
-      <find>done</find>
-      <find>.recv</find>
-      <find>termi</find>
-      <find>global</find>
-      <find>glo</find>
+      <find>server</find>
+      <find>wlistwlist</find>
+      <find>New victim</find>
+      <find>thread</find>
+      <find>thre</find>
+      <find>Thread</find>
+      <find>self.server_socket.accept</find>
+      <find>self.victim_list</find>
+      <find>wlist</find>
+      <find>open_client_sockets, [])</find>
+      <find>open_client_sockets</find>
+      <find>sleep</find>
+      <find>[0]</find>
+      <find>cmd</find>
+      <find>quit</find>
+      <find>socket.</find>
+      <find>victim</find>
+      <find>show_victims</find>
+      <find>.getsockname()[1])</find>
+      <find>command_id</find>
+      <find>show_victim</find>
+      <find>_str</find>
+      <find>_str(</find>
+      <find>/n</find>
+      <find>\n</find>
+      <find>cmd</find>
+      <find>command_id in self.command_dict</find>
+      <find>con</find>
+      <find>0:</find>
       <find>update</find>
-      <find>sock</find>
     </findStrings>
     <replaceStrings>
       <replace>e</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\admin\Documents\CyberElite\CyberEliteMatirials\Project</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -105,15 +144,19 @@
         <option value="$PROJECT_DIR$/new_version.py" />
         <option value="$PROJECT_DIR$/backup/client.py" />
         <option value="$PROJECT_DIR$/tryme.py" />
+        <option value="$PROJECT_DIR$/server2.py" />
         <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/Todo" />
         <option value="$PROJECT_DIR$/client.py" />
+        <option value="$PROJECT_DIR$/classServer.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="546" />
-    <option name="width" value="827" />
-    <option name="height" value="735" />
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -139,11 +182,6 @@
               <item name="Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project" type="462c0819:PsiDirectoryNode" />
-              <item name="backup" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -161,6 +199,7 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Documents\CyberElite\CyberEliteMatirials\Project" />
+      <recent name="C:\Users\admin\Documents\CyberElite\CyberEliteMatirials\Projectc" />
       <recent name="C:\Users\admin\Documents\CyberElite\CyberEliteMatirials\Project\backup" />
     </key>
   </component>
@@ -176,8 +215,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tryme">
-    <configuration name="UDPclient (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.classServer">
+    <configuration name="classServer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -189,7 +228,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UDPclient.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classServer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="client (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -228,7 +284,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="tryme" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="server2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -240,42 +296,25 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tryme.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="update" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/update.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.UDPclient (1)" />
-      <item index="1" class="java.lang.String" itemvalue="Python.server" />
-      <item index="2" class="java.lang.String" itemvalue="Python.client" />
-      <item index="3" class="java.lang.String" itemvalue="Python.update" />
-      <item index="4" class="java.lang.String" itemvalue="Python.tryme" />
+      <item index="0" class="java.lang.String" itemvalue="Python.server" />
+      <item index="1" class="java.lang.String" itemvalue="Python.client" />
+      <item index="2" class="java.lang.String" itemvalue="Python.client (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.server2" />
+      <item index="4" class="java.lang.String" itemvalue="Python.classServer" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.client" />
-        <item index="1" class="java.lang.String" itemvalue="Python.server" />
-        <item index="2" class="java.lang.String" itemvalue="Python.tryme" />
-        <item index="3" class="java.lang.String" itemvalue="Python.update" />
-        <item index="4" class="java.lang.String" itemvalue="Python.UDPclient (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Python.classServer" />
+        <item index="1" class="java.lang.String" itemvalue="Python.server2" />
+        <item index="2" class="java.lang.String" itemvalue="Python.client (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.server" />
+        <item index="4" class="java.lang.String" itemvalue="Python.client" />
       </list>
     </recent_temporary>
   </component>
@@ -290,22 +329,30 @@
       <option name="presentableId" value="Default" />
       <updated>1527149518724</updated>
     </task>
+    <task id="LOCAL-00001" summary="update version and terminate.">
+      <created>1527757035411</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1527757035411</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18305598" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18305598" sideWeight="0.4942717" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38134205" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11292962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3704918" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23895253" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37806875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.400982" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12765957" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14566284" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18305598" sideWeight="0.5057283" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43535188" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
@@ -318,45 +365,65 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update version and terminate." />
+    <option name="LAST_COMMIT_MESSAGE" value="update version and terminate." />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/UDPserver.py</url>
-          <line>49</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/UDPserver.py</url>
-          <line>50</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/UDPclient.py</url>
-          <line>50</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/UDPclient.py</url>
-          <line>44</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/UDPclient.py</url>
-          <line>47</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/server.py</url>
-          <line>102</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/server.py</url>
-          <line>114</line>
+          <line>148</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/client.py</url>
+          <line>138</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/client.py</url>
+          <line>156</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/client.py</url>
+          <line>164</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/client.py</url>
+          <line>160</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classServer.py</url>
+          <line>106</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classServer.py</url>
+          <line>100</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classServer.py</url>
+          <line>54</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classServer.py</url>
+          <line>107</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classServer.py</url>
+          <line>129</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -401,27 +468,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/srcClient.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding>
-            <element signature="e#55#68#0" expanded="false" />
-            <element signature="e#1139#1661#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UDPclient.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#147#167#0" expanded="false" />
-            <element signature="e#187#207#0" expanded="false" />
-            <element signature="e#224#254#0" expanded="false" />
-            <element signature="e#544#558#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -441,16 +492,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_version.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="94" column="44" lean-forward="false" selection-start-line="94" selection-start-column="44" selection-end-line="94" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tryme.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -467,33 +508,139 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backup/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_version.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="94" column="44" lean-forward="false" selection-start-line="94" selection-start-column="44" selection-end-line="94" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="72" column="10" lean-forward="false" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/srcClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="54" column="33" lean-forward="false" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
+          <folding>
+            <element signature="e#1139#1661#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Todo">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="37" column="28" lean-forward="true" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Projectc/classClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/srcServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="53" column="24" lean-forward="false" selection-start-line="53" selection-start-column="24" selection-end-line="56" selection-end-column="29" />
+        <state relative-caret-position="220">
+          <caret line="56" column="20" lean-forward="false" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="74" column="42" lean-forward="true" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+        <state relative-caret-position="69">
+          <caret line="126" column="106" lean-forward="false" selection-start-line="126" selection-start-column="87" selection-end-line="126" selection-end-column="106" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#3611#3796#0" expanded="false" />
+            <element signature="e#338#822#0" expanded="false" />
+            <element signature="e#551#783#0" expanded="false" />
+            <element signature="e#645#783#0" expanded="false" />
+            <element signature="e#860#876#0" expanded="false" />
+            <element signature="e#917#1500#0" expanded="false" />
+            <element signature="e#1037#1500#0" expanded="false" />
+            <element signature="e#1054#1242#0" expanded="false" />
+            <element signature="e#1280#1377#0" expanded="false" />
+            <element signature="e#1549#1577#0" expanded="false" />
+            <element signature="e#1628#1656#0" expanded="false" />
+            <element signature="e#1674#1771#0" expanded="false" />
+            <element signature="e#1803#1817#0" expanded="false" />
+            <element signature="e#1859#1898#0" expanded="false" />
+            <element signature="e#2210#2857#0" expanded="false" />
+            <element signature="e#2532#2807#0" expanded="false" />
+            <element signature="e#2580#2807#0" expanded="false" />
+            <element signature="e#2973#3060#0" expanded="false" />
+            <element signature="e#3740#3788#0" expanded="false" />
+            <element signature="e#4085#4194#0" expanded="false" />
+            <element signature="e#4253#4404#0" expanded="false" />
+            <element signature="e#4310#4344#0" expanded="false" />
+            <element signature="e#4473#4658#0" expanded="false" />
+            <element signature="e#4798#4863#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client.py">
+    <entry file="file://C:/Python27/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="93">
+          <caret line="773" column="0" lean-forward="false" selection-start-line="773" selection-start-column="0" selection-end-line="773" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="54" column="31" lean-forward="true" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#991#1899#0" expanded="false" />
-            <element signature="e#1962#1992#0" expanded="false" />
+            <element signature="e#2792#2806#0" expanded="false" />
+            <element signature="e#3230#4283#0" expanded="false" />
+            <element signature="e#4861#4882#0" expanded="false" />
           </folding>
         </state>
       </provider>
